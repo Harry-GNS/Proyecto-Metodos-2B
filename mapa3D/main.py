@@ -15,10 +15,29 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 src_dir = os.path.join(current_dir, 'src')
 sys.path.insert(0, src_dir)
 
+# Configuración básica incorporada
+GUI_CONFIG = {
+    "window": {
+        "width": 1000,
+        "height": 700,
+        "title": "Mapa 3D del Ecuador - Generador"
+    }
+}
+
+PROCESSING_CONFIG = {
+    "temp_dir": os.path.join(current_dir, "temp"),
+    "logging_level": "INFO"
+}
+
+def setup_logging_basic(level="INFO"):
+    """Configuración básica de logging."""
+    logging.basicConfig(
+        level=getattr(logging, level.upper(), logging.INFO),
+        format='%(asctime)s - %(levelname)s - %(message)s'
+    )
+
 try:
     from gui.main_window import MainWindow
-    from utils.helpers import setup_logging
-    from utils.config import GUI_CONFIG, PROCESSING_CONFIG
 except ImportError as e:
     print(f"Error al importar módulos: {e}")
     print("Asegúrate de que todas las dependencias estén instaladas.")
@@ -78,7 +97,7 @@ def main():
     # Configurar logging
     try:
         log_level = PROCESSING_CONFIG.get('logging_level', 'INFO')
-        setup_logging(level=log_level)
+        setup_logging_basic(level=log_level)
         print(f"📝 Sistema de logging configurado (nivel: {log_level})")
     except Exception as e:
         # Fallback a configuración básica

@@ -7,18 +7,17 @@ utilizadas en el proyecto.
 """
 
 import os
-from pathlib import Path
 
 # Rutas del proyecto
-PROJECT_ROOT = Path(__file__).parent.parent.parent
-DATA_DIR = PROJECT_ROOT / "data"
-RAW_DATA_DIR = DATA_DIR / "raw"
-PROCESSED_DATA_DIR = DATA_DIR / "processed"
-OUTPUT_DIR = DATA_DIR / "output"
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+DATA_DIR = os.path.join(PROJECT_ROOT, "data")
+RAW_DATA_DIR = os.path.join(DATA_DIR, "raw")
+PROCESSED_DATA_DIR = os.path.join(DATA_DIR, "processed")
+OUTPUT_DIR = os.path.join(DATA_DIR, "output")
 
 # Crear directorios si no existen
 for directory in [DATA_DIR, RAW_DATA_DIR, PROCESSED_DATA_DIR, OUTPUT_DIR]:
-    directory.mkdir(exist_ok=True)
+    os.makedirs(directory, exist_ok=True)
 
 # Configuraciones de datos DEM
 DEM_CONFIG = {
