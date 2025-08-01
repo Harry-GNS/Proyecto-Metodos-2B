@@ -120,11 +120,11 @@ PROCESSING_CONFIG = {
     "memory_limit_mb": 1024,  # Límite de memoria
     "parallel_processes": 4,   # Número de procesos paralelos
     "cache_enabled": True,
-    "temp_dir": PROJECT_ROOT / "temp"
+    "temp_dir": os.path.join(PROJECT_ROOT, "temp")
 }
 
 # Crear directorio temporal si no existe
-PROCESSING_CONFIG["temp_dir"].mkdir(exist_ok=True)
+os.makedirs(PROCESSING_CONFIG["temp_dir"], exist_ok=True)
 
 # URLs de datos
 DATA_SOURCES = {
