@@ -1,5 +1,9 @@
 # 🗺️ Mapa 3D del Ecuador
 
+<div align="center">
+  <img src="Banner.jpg" alt="Mapa 3D del Ecuador - Banner del Proyecto" width="100%" style="border-radius: 10px; margin-bottom: 20px;">
+</div>
+
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![License](https://img.shields.io/badge/License-Academic-green.svg)
 ![Status](https://img.shields.io/badge/Status-Development-yellow.svg)
